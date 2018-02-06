@@ -4,9 +4,11 @@ angular.module('app')
   itemsService.getAll((xml) => {
     app.items = xml;
   });
-  itemsService.getQ(q, (xml) => {
-    app.items = xml;
-  })
+  app.getQ = q => {
+    itemsService.getQ(q, (xml) => {
+      app.items = xml;
+    })
+  };
 })
 .component('app', {
   bindings: {},
