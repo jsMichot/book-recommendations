@@ -5,16 +5,16 @@
   <input ng-model="query" type="text" />
   <button ng-click="$ctrl.getQ(query)">Submit</button><br><br>
   <h3><u><b>Recommended Books</b></u></h3>
-  {{$ctrl.items}}
+  <!-- {{$ctrl.items.data}} -->
   <ol>
-    <li><br>Title: {{$ctrl.items[0].title}}<br>Author: {{$ctrl.items[0].author}}<br></li>
+    <!-- <li><br>Title: {{$ctrl.items[0].title}}<br>Author: {{$ctrl.items[0].author}}<br></li>
     <li><br>Title: {{$ctrl.items[1].title}}<br>Author: {{$ctrl.items[1].author}}<br></li>
     <li><br>Title: {{$ctrl.items[2].title}}<br>Author: {{$ctrl.items[2].author}}<br></li>
     <li><br>Title: {{$ctrl.items[3].title}}<br>Author: {{$ctrl.items[3].author}}<br></li>
     <li><br>Title: {{$ctrl.items[4].title}}<br>Author: {{$ctrl.items[4].author}}<br></li>
-    <li><br>Title: {{$ctrl.items[5].title}}<br>Author: {{$ctrl.items[5].author}}<br></li>
-    <!-- <li ng-repeat="book in $ctrl.items" title="book.title" author="book.author">
+    <li><br>Title: {{$ctrl.items[5].title}}<br>Author: {{$ctrl.items[5].author}}<br></li> -->
+    <li ng-repeat="book in $ctrl.items.data" title="book.title" author="book.author">
       <br>Title: {{title}}<br>Author: {{author}}<br>
-    </li> -->
+    </li>
   </ol>
 </div>
