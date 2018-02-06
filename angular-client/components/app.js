@@ -7,6 +7,7 @@ angular.module('app')
   app.postQ = q => {
     itemsService.postQ(q, (books) => {
       app.items = books;
+      console.log('!!!!!! ' + app.items);
     })
     app.templateUrl = 'templates/app.html';
   };
