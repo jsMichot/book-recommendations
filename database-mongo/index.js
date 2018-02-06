@@ -30,4 +30,4 @@ const selectAll = function(callback) {
 };
 
 module.exports.selectAll = selectAll;
-module.exports.bookSchema = bookSchema;
+module.exports.Item = Item;
