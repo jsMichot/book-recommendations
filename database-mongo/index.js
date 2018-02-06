@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/test');
 mongoose.connect('mongodb://bob:bob@ds125588.mlab.com:25588/bookz');
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on('error', function() {
   console.log('mongoose connection error');
@@ -12,14 +12,14 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+const bookSchema = mongoose.Schema({
+  title: { type: String, index: { unique: true, dropDups: true } },
+  author: String
 });
 
-var Item = mongoose.model('Item', itemSchema);
+const Item = mongoose.model('Item', bookSchema);
 
-var selectAll = function(callback) {
+const selectAll = function(callback) {
   Item.find({}, function(err, items) {
     if(err) {
       callback(err, null);
@@ -30,3 +30,4 @@ var selectAll = function(callback) {
 };
 
 module.exports.selectAll = selectAll;
+module.exports.bookSchema = bookSchema;

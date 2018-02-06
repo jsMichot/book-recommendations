@@ -39,12 +39,14 @@ app.post('/books', (req, res) => {
     if (error) {
       console.log('SERVER error: ' + error);
     } else {
-      // const json = parser.toJSON(body);
       parseString(body, (err, result) => {
         const results = result.GoodreadsResponse.search[0].results[0].work.reduce((books, book) => {
           books.push({ title: book.best_book[0].title[0], author: book.best_book[0].author[0].name[0] });
           return books;
         }, [])
+        results.forEach(book => {
+          new items.bookSchema({title: book.title, author: book.author});
+        });
         res.send(results);
         /*
         Results Array: GoodreadsResponse.search[0].results[0].work
@@ -66,7 +68,6 @@ app.get('/books', (req, res) => {
     if (error) {
       console.log('SERVER error: ' + error);
     } else {
-      // const json = parser.toJSON(body);
       parseString(body, (err, result) => {
         const results = result.GoodreadsResponse.search[0].results[0].work.reduce((books, book) => {
           books.push({ title: book.best_book[0].title[0], author: book.best_book[0].author[0].name[0]});
