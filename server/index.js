@@ -41,8 +41,8 @@ app.get('/books', (req, res) => {
       console.log('SERVER error: ' + error);
     } else {
       const results = parser.toJson(body);
-      const keys = Object.keys(results);
-      console.log(keys);
+      const book = results[1];
+      console.log(books);
     }
   })
   
