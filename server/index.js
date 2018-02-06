@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const $http = require('http');
 
 const items = require('../database-mongo');
 
@@ -29,19 +30,19 @@ app.post('/books', (req, res) => {
   res.send('this feature is currently being created')
 })
 
-// app.get('/books', (req, res) => {
-//   $http({
-//     method: 'GET',
-//     url: 'https://www.goodreads.com/search',
-//     params: {
-//       key: window.GOODREADS_API_KEY,
-//       q: options.query || 'history',
-//       part: 'best_book',
-//       maxResults: 5,
-//       type: 'Book'
-//     }
-//   })
-//   .then(books => {
-//     console.log(books);
-//   })
-// })
+app.get('/books', (req, res) => {
+  $http({
+    method: 'GET',
+    url: 'https://www.goodreads.com/search',
+    params: {
+      key: window.GOODREADS_API_KEY,
+      q: options.query || 'history',
+      part: 'best_book',
+      maxResults: 5,
+      type: 'Book'
+    }
+  })
+  .then(books => {
+    console.log(books);
+  })
+})
