@@ -1,8 +1,10 @@
 angular.module('app')
 .service('itemsService', function($http) {
+  this.items = null;
   this.getAll = function(callback) {
     $http.get('/books')
     .then(function(books) {
+      this.items = books.data;
       if(callback) {
         callback(books.data);
       }
@@ -26,6 +28,7 @@ angular.module('app')
       "data": "{\n\t\"q\": \"romance\"\n}"
     }
     $.ajax(settings).done(function (books) {
+      this.items = books;
       console.log(books);
       if (callback) {
         callback(books);
