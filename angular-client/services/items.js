@@ -12,20 +12,38 @@ angular.module('app')
     });
   };
   this.postQ = (q, callback) => {
-    $http({
-      url: '/books',
-      method: "POST",
-      params: {
-        q: q
-      }
-    })
-    .then((books) => {
-      if (callback) {
-        callback(books);
-      }
-    })
-    .catch(function (err) {
-      console.log(err);
+    const settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://localhost:3000/books",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+        "Postman-Token": "e0134111-8c4d-3124-0eb6-0e192384ae76"
+      },
+      "processData": false,
+      "data": "{\n\t\"q\": \"romance\"\n}"
+    }
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
     });
+    // $http({
+    //   url: '/books',
+    //   method: "POST",
+    //   params: {
+    //     q: q
+    //   }
+    // })
+    // .then((books) => {
+    //   console.log(books);
+    //   if (callback) {
+    //     callback(books);
+    //   }
+    // })
+    // .catch(function (err) {
+    //   console.log(err);
+    // });
   };
 });
