@@ -40,12 +40,7 @@ app.get('/books', (req, res) => {
     if (error) {
       console.log('SERVER error: ' + error);
     } else {
-      parser.toJson(body, function (err, result) {
-        const books = Object.keys(result.GoodreadsResponse.Request);
-        const books2 = Object.keys(result.GoodreadsResponse.search);
-        console.log('TITLE: ' + books + 'AUTHOR: ' + books2);
-        console.log(result);
-      });
+      console.log(parser.toJson(body));
     }
   })
   
