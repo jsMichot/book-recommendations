@@ -41,7 +41,7 @@ app.get('/books', (req, res) => {
       console.log('SERVER error: ' + error);
     } else {
       parseString(body, function (err, result) {
-        const books = Object.keys(result);
+        const books = result.GoodreadsResponse.search;
         console.log(JSON.stringify(books));
         console.log(result);
       });
