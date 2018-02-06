@@ -23,7 +23,7 @@ angular.module('app')
         "Postman-Token": "e0134111-8c4d-3124-0eb6-0e192384ae76"
       },
       "processData": false,
-      "data": "{\n\t\"q\": q\n}"
+      "data": {q: q}
     }
     $.ajax(settings).done(function (response) {
       console.log(response);
