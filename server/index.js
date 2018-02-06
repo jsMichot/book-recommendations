@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const xmlparser = require('express-xml-bodyparser');
+const parseString = require('xml2js').parseString
 
 const items = require('../database-mongo');
 
@@ -41,7 +41,9 @@ app.get('/books', (req, res) => {
     if (error) {
       console.log('SERVER error: ' + error);
     } else {
-      console.log(body);
+      parseString(body, function (err, result) {
+        console.log(result);
+      });
     }
   })
   
