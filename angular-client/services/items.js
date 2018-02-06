@@ -2,10 +2,10 @@ angular.module('app')
 .service('itemsService', function($http) {
   this.getAll = function(callback) {
     $http.get('/books')
-    .then(function({data}) {
+    .then(function(books) {
       if(callback) {
-        console.log('this is data: ' + data)
-        callback(data);
+        console.log('this is data: ' + books)
+        callback(books);
       }
     })
     .catch(function(err) {
