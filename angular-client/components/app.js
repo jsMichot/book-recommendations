@@ -4,6 +4,9 @@ angular.module('app')
   itemsService.getAll((html) => {
     app.items = html;
   });
+  app.getQ = (q) => {
+    console.log(q);
+  };
 })
 .component('app', {
   bindings: {},
