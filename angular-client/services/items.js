@@ -1,11 +1,23 @@
 angular.module('app')
 .service('itemsService', function($http) {
   this.getAll = function(callback) {
-    $http.get('/books')
-    .then(function(books) {
+    $http({
+      method: 'GET',
+      url: 'https://www.goodreads.com/search',
+      params: {
+        key: window.GOODREADS_API_KEY,
+        q: options.query || 'history',
+        part: 'best_book',
+        maxResults: 5,
+        type: 'Book'
+      }
+    })
+    .then(books => {
+      console.log(books);
+    })
+    .then(function({data}) {
       if(callback) {
-        console.log('this is data: ' + books)
-        callback(books);
+        callback(data);
       }
     })
     .catch(function(err) {
