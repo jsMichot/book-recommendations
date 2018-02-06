@@ -16,11 +16,8 @@ angular.module('app')
       method: 'GET',
       url: 'https://www.goodreads.com/search',
       params: {
-        key: 'Ya50zfsGd2qjCZfprdN5BQ',
         q: q,
-        part: 'best_book',
-        maxResults: 5,
-        type: 'Book'
+        key: 'Ya50zfsGd2qjCZfprdN5BQ',
       }
     })
     .then(function (xml) {
