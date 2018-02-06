@@ -5,6 +5,7 @@
   <input ng-model="query" type="text" />
   <button ng-click="$ctrl.getQ(query)">Submit</button><br><br>
   <h3><u><b>Recommended Books</b></u></h3>
+  {{$ctrl.items}}
   <ol>
     <li><br>Title: {{$ctrl.items[0].title}}<br>Author: {{$ctrl.items[0].author}}<br></li>
     <li><br>Title: {{$ctrl.items[1].title}}<br>Author: {{$ctrl.items[1].author}}<br></li>
