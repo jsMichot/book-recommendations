@@ -1,12 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const items = require('../database/mongo.js');
+
+const items = require('../database-mongo');
+
 const app = express();
 
-app.use(express.static(__dirname + '/../client/'));
+app.use(express.static(__dirname + '/../angular-client'));
 app.use(express.static(__dirname + '/../node_modules'));
 
-
+app.get('/items', function (req, res) {
+  items.selectAll(function(err, data) {
+    if(err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+    }
+  });
+});
 
 const port = process.env.PORT || 3000;
 
@@ -33,12 +43,4 @@ app.get('/books', (req, res) => {
   .then(books => {
     console.log(books);
   })
-  
-  // items.selectAll(function (err, data) {
-  //   if (err) {
-  //     res.sendStatus(500);
-  //   } else {
-  //     res.json(data);
-  //   }
-  // });
 })
