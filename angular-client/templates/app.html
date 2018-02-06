@@ -1,7 +1,9 @@
 <div>
   Get a recommendation: <br>
-  <search />
-  <div>
-    {{$ctrl.items}}
-  </div>
+   Search:
+  <br>
+  <input ng-model="query" type="text" />
+  <submit>Submit</submit><br><br>
+  <h5><u><b>Recommended Books</b></u></h5>
+  {{$ctrl.items}}
 </div>
