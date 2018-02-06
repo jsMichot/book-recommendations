@@ -3,6 +3,7 @@ angular.module('app')
   this.getAll = function(callback) {
     $http.get('/books')
     .then(function(xml) {
+      window.books = xml;
       if(callback) {
         callback(xml);
       }

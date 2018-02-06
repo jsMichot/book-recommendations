@@ -25,4 +25,4 @@
   I love to read, but sometimes I go long periods without reading because I cannot think of anything good to read.
 
 ## Closing and Call to Action ##
-  Go to https://... and find a good book to read!
+  Go to https://book-recommends.herokuapp.com/ and find a good book to read!
