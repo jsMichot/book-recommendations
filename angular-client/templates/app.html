@@ -6,8 +6,8 @@
   <button ng-click="$ctrl.getQ(query)">Submit</button><br><br>
   <h3><u><b>Recommended Books</b></u></h3>
   <ol>
-    <li ng-repeat="book in $ctrl.items">
-      <br>Title: {{$ctrl.book.title}}<br>Author: {{$ctrl.book.author}}<br>
+    <li ng-repeat="book in $ctrl.items" title="book.title" author="book.author">
+      <br>Title: {{title}}<br>Author: {{author}}<br>
     </li>
   </ol>
 </div>
