@@ -42,7 +42,7 @@ app.get('/books', (req, res) => {
     } else {
       const results = parser.toJson(body);
       // const book = JSON.parse(body);
-      console.log('!!!!!!!!!!   ' + body + '!!!!!!!!!!!!!!!1   ');
+      console.log('!!!!!!!!!!   ' + body + '!!!!!!!!!!!!!!!1   ' + results);
     }
   })
   
