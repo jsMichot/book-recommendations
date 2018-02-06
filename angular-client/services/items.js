@@ -1,9 +1,10 @@
 angular.module('app')
 .service('itemsService', function($http) {
   this.getAll = function(callback) {
-    $http.get('/items')
+    $http.get('/books')
     .then(function({data}) {
       if(callback) {
+        console.log('this is data: ' + data)
         callback(data);
       }
     })

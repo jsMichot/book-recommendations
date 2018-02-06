@@ -8,6 +8,7 @@ const app = express();
 app.use(express.static(__dirname + '/../angular-client'));
 app.use(express.static(__dirname + '/../node_modules'));
 
+
 app.get('/items', function (req, res) {
   items.selectAll(function(err, data) {
     if(err) {
