@@ -28,6 +28,15 @@ angular.module('app')
 
     $.ajax(settings).done(function (response) {
       console.log(response);
+    })
+    .then((books) => {
+      console.log(books);
+      if (callback) {
+        callback(books);
+      }
+    })
+    .catch(function (err) {
+      console.log(err);
     });
     // $http({
     //   url: '/books',
@@ -36,14 +45,6 @@ angular.module('app')
     //     q: q
     //   }
     // })
-    // .then((books) => {
-    //   console.log(books);
-    //   if (callback) {
-    //     callback(books);
-    //   }
-    // })
-    // .catch(function (err) {
-    //   console.log(err);
-    // });
+    
   };
 });
