@@ -5,7 +5,7 @@ angular.module('app')
     app.items = books;
   });
   app.postQ = q => {
-    itemsService.getQ(q, (books) => {
+    itemsService.postQ(q, (books) => {
       app.items = books;
     })
   };
