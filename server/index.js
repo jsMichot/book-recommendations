@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const parser = require('xml2json')
+const {parseString} = require('xml2js');
 
 const items = require('../database-mongo');
 
@@ -33,7 +33,7 @@ app.post('/books', (req, res) => {
   res.send('this feature is currently being created')
 })
 
-app.get('/books', jsonParser, (req, res) => {
+app.get('/books', (req, res) => {
   const options = {
     method: 'GET',
     url: 'https://www.goodreads.com/search/index.xml',
@@ -44,7 +44,18 @@ app.get('/books', jsonParser, (req, res) => {
       console.log('SERVER error: ' + error);
     } else {
       // const json = parser.toJSON(body);
-      res.send(body);
+      parseString(body, (err, result) => {
+        const results = result.GoodreadsResponse.search[0].results[0].work.reduce((books, book) => {
+          books.push({ title: book.best_book[0].title[0], author: book.best_book[0].author[0].name[0]});
+          return books;
+        }, [])
+        res.send(results);
+        /*
+        Results Array: GoodreadsResponse.search[0].results[0].work
+        Title: Results[i].best_book[0].title[0]
+        Author: Results[i].best_book[0].author[0].name[0]
+        */
+      });
     }
   })
 })
