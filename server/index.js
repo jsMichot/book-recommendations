@@ -31,18 +31,32 @@ app.post('/books', (req, res) => {
 })
 
 app.get('/books', (req, res) => {
-  $http({
+  const options = {
     method: 'GET',
-    url: 'https://www.goodreads.com/search',
-    params: {
-      key: process.env.key,
-      q: 'history',
-      part: 'best_book',
-      maxResults: 5,
-      type: 'Book'
+    url: 'https://www.goodreads.com/search/index.xml',
+    qs: { key: 'Ya50zfsGd2qjCZfprdN5BQ', q: 'Ender%27s+Game' }
+  };
+  request(options, function (error, response, body) {
+    if (error) {
+      console.log('SERVER error: ' + error);
+    } else {
+      console.log(body);
     }
   })
-  .then(books => {
-    console.log(books);
-  })
+  
+  
+  // $http({
+  //   method: 'GET',
+  //   url: 'https://www.goodreads.com/search',
+  //   params: {
+  //     key: process.env.key,
+  //     q: 'history',
+  //     part: 'best_book',
+  //     maxResults: 5,
+  //     type: 'Book'
+  //   }
+  // })
+  // .then(books => {
+  //   console.log(books);
+  // })
 })
