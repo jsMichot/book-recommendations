@@ -43,20 +43,4 @@ app.get('/books', (req, res) => {
       res.send(body);
     }
   })
-  
-  
-  // $http({
-  //   method: 'GET',
-  //   url: 'https://www.goodreads.com/search',
-  //   params: {
-  //     key: process.env.key,
-  //     q: 'history',
-  //     part: 'best_book',
-  //     maxResults: 5,
-  //     type: 'Book'
-  //   }
-  // })
-  // .then(books => {
-  //   console.log(books);
-  // })
 })
