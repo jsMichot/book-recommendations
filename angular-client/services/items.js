@@ -16,7 +16,7 @@ angular.module('app')
     const settings = {
       "async": true,
       "crossDomain": true,
-      "url": "https://www.goodreads.com/search/index.xml?key=Ya50zfsGd2qjCZfprdN5BQ&q=romance",
+      "url": `https://www.goodreads.com/search/index.xml?key=${process.env.key}&q=romance`,
       "method": "GET"
     }
     $.ajax(settings).done(function (xml) {
