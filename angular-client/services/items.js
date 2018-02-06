@@ -1,10 +1,11 @@
 angular.module('app')
 .service('itemsService', function($http) {
-  this.items = null;
-  this.getAll = function(callback) {
+  const itemsService = this;
+  itemsService.items = null;
+  itemsService.getAll = function(callback) {
     $http.get('/books')
     .then(function(books) {
-      this.items = books.data;
+      itemsService.items = books.data;
       if(callback) {
         callback(books.data);
       }
@@ -13,7 +14,7 @@ angular.module('app')
       console.log(err);
     });
   };
-  this.postQ = (q, callback) => {
+  itemsService.postQ = (q, callback) => {
     const settings = {
       "async": true,
       "crossDomain": true,
@@ -28,7 +29,7 @@ angular.module('app')
       "data": "{\n\t\"q\": \"romance\"\n}"
     }
     $.ajax(settings).done(function (books) {
-      this.items = books;
+      itemsService.items = books;
       console.log(books);
       if (callback) {
         callback(books);
