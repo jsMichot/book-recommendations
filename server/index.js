@@ -44,9 +44,9 @@ app.post('/books', (req, res) => {
           books.push({ title: book.best_book[0].title[0], author: book.best_book[0].author[0].name[0] });
           return books;
         }, [])
-        results.forEach(book => {
-          new items.bookSchema({title: book.title, author: book.author});
-        });
+        // results.forEach(book => {
+        //   new items.bookSchema({title: book.title, author: book.author});
+        // });
         res.send(results);
         /*
         Results Array: GoodreadsResponse.search[0].results[0].work
