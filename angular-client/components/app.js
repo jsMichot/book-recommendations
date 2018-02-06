@@ -10,11 +10,12 @@ angular.module('app')
       app.items = itemsService.items;
       console.log('!!!!!! ' + app.items);
     })
-    app.templateUrl = 'templates/app.html';
+    app.input = '';
+    // app.templateUrl = 'templates/app.html';
   };
 })
 .component('app', {
-  bindings: {},
+  bindings: {input: '<'},
   controller: 'AppCtrl',
   templateUrl: '/templates/app.html'
 });
