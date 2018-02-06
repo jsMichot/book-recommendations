@@ -1,4 +1,4 @@
-body {
+#app {
   background-color: #f76;
   background-image:
     linear-gradient(30deg, #fee 13.5%, transparent 13.5%, transparent 86.5%, #fee 86.5%),
