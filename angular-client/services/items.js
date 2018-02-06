@@ -19,5 +19,13 @@ angular.module('app')
         q: q
       }
     })
+    .then((books) => {
+      if (callback) {
+        callback(books);
+      }
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
   };
 });
