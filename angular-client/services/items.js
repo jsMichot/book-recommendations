@@ -6,7 +6,7 @@ angular.module('app')
       url: 'https://www.goodreads.com/search',
       params: {
         key: window.GOODREADS_API_KEY,
-        q: options.query || 'history',
+        q: 'history',
         part: 'best_book',
         maxResults: 5,
         type: 'Book'
