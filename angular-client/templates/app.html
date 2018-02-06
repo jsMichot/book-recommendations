@@ -1,16 +1,17 @@
 <div>
-  Get a recommendation: <br>
+  <search post-q="$ctrl.postQ(query)"/>
+  <!-- Get a recommendation: <br>
    Search:
   <br>
   <input ng-model="query" type="text" />
-  <button ng-click="$ctrl.postQ(query)">Submit</button><br><br>
+  <button ng-click="$ctrl.postQ(query)">Submit</button><br><br> -->
   <h3><u><b>Recommended Books</b></u></h3>
-  <ol>
+  <!-- <ol>
     <li ng-repeat="book in $ctrl.items">
       <br>Title: {{book.title}}
       <br>Author: {{book.author}}
       <br>
     </li>
-  </ol>
-  <!-- <list items="ctrl.items"></list> -->
+  </ol> -->
+  <list items="$ctrl.items"></list>
 </div>
