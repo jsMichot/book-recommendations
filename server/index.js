@@ -42,6 +42,7 @@ app.get('/books', (req, res) => {
     } else {
       const results = parser.toJson(body);
       const keys = Object.keys(results);
+      console.log(keys);
     }
   })
   
