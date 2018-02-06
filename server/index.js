@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
+const xmlparser = require('express-xml-bodyparser');
 
 const items = require('../database-mongo');
 
@@ -8,7 +9,7 @@ const app = express();
 
 app.use(express.static(__dirname + '/../angular-client'));
 app.use(express.static(__dirname + '/../node_modules'));
-
+app.use(xmlparser());
 
 app.get('/items', function (req, res) {
   items.selectAll(function(err, data) {
