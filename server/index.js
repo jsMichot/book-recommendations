@@ -42,7 +42,7 @@ app.get('/books', (req, res) => {
     } else {
       const results = parser.toJson(body);
       const book = results[1];
-      console.log(book);
+      console.log('!!!!!!!!!!   ' + book);
     }
   })
   
