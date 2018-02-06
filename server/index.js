@@ -41,7 +41,7 @@ app.get('/books', (req, res) => {
       console.log('SERVER error: ' + error);
     } else {
       parseString(body, function (err, result) {
-        console.log(result);
+        console.log(JSON.stringify(result));
       });
     }
   })
