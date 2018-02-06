@@ -30,7 +30,30 @@ app.listen(port, () => {
 });
 
 app.post('/books', (req, res) => {
-  res.send('this feature is currently being created')
+  const options = {
+    method: 'GET',
+    url: 'https://www.goodreads.com/search/index.xml',
+    qs: { key: 'Ya50zfsGd2qjCZfprdN5BQ', q: req.body.q }
+  };
+  request(options, function (error, response, body) {
+    if (error) {
+      console.log('SERVER error: ' + error);
+    } else {
+      // const json = parser.toJSON(body);
+      parseString(body, (err, result) => {
+        const results = result.GoodreadsResponse.search[0].results[0].work.reduce((books, book) => {
+          books.push({ title: book.best_book[0].title[0], author: book.best_book[0].author[0].name[0] });
+          return books;
+        }, [])
+        res.send(results);
+        /*
+        Results Array: GoodreadsResponse.search[0].results[0].work
+        Title: Results[i].best_book[0].title[0]
+        Author: Results[i].best_book[0].author[0].name[0]
+        */
+      });
+    }
+  })
 })
 
 app.get('/books', (req, res) => {

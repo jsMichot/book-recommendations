@@ -4,9 +4,9 @@ angular.module('app')
   itemsService.getAll((books) => {
     app.items = books;
   });
-  app.getQ = q => {
-    itemsService.getQ(q, (xml) => {
-      app.items = xml;
+  app.postQ = q => {
+    itemsService.getQ(q, (books) => {
+      app.items = books;
     })
   };
 })
