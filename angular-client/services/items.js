@@ -36,4 +36,16 @@ angular.module('app')
       }
     })
   };
+  itemsService.getRan = (callback) => {
+    $http.get('/items')
+    .then(function (books) {
+      itemsService.items = books.data;
+      if (callback) {
+        callback(books.data);
+      }
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+  }
 });

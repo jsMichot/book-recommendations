@@ -4,7 +4,10 @@
   (brought to you by goodreads)
   <br>Search:<br>
   <input ng-model="query" type="text" class="query"/>
-  <button ng-click="$ctrl.postQ(query); $ctrl.input=''">Submit</button><br><br>
+  <button ng-click="$ctrl.postQ(query); $ctrl.input=''">Submit</button><br>
+  <button ng-click="$ctrl.getRandom()">Suggest Something for Me</button>
+  <br>
+
   <h3><u><b>Recommended Books</b></u></h3>
   <ol>
     <li ng-repeat="book in $ctrl.items">

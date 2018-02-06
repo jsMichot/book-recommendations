@@ -12,6 +12,11 @@ angular.module('app')
       $('.query').val('');
     })
   };
+  app.getRan = () => {
+    itemsService.getRan(books => {
+      app.items = itemsService.items;
+    })
+  }
 })
 .component('app', {
   bindings: {input: '<'},

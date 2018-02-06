@@ -14,11 +14,18 @@ app.use(bodyParser.json());
 const jsonParser = bodyParser.json();
 
 app.get('/items', function (req, res) {
-  items.selectAll(function(err, data) {
+  items.selectAll(function(err, books) {
     if(err) {
       res.sendStatus(500);
     } else {
-      res.json(data);
+      const randomSelections = [];
+      for (i = 0; i < 20; i++) {
+        let ranNum = Math.floor(Math.random() * 20);
+        for (let i = 0; i < 20; i++) {
+          if (i === ranNum) { randomSelections.push(books[i]); }
+        }
+      }
+      res.send(randomSelections);
     }
   });
 });
