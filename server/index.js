@@ -40,7 +40,7 @@ app.get('/books', (req, res) => {
     if (error) {
       console.log('SERVER error: ' + error);
     } else {
-      const results = parser.toJson(body);
+      const results = parser.toJson(response);
       const book = JSON.parse(response);
       console.log('!!!!!!!!!!   ' + Object.keys(response) + '!!!!!!!!!!!!!!!1   ');
     }
