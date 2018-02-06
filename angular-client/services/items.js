@@ -3,10 +3,8 @@ angular.module('app')
   this.getAll = function(callback) {
     $http.get('/books')
     .then(function(xml) {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(xml, "text/html");
       if(callback) {
-        callback(doc);
+        callback(xml);
       }
     })
     .catch(function(err) {
