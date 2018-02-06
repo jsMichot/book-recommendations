@@ -40,8 +40,8 @@ app.get('/books', (req, res) => {
     if (error) {
       console.log('SERVER error: ' + error);
     } else {
-      const json = parser.toJSON(body);
-      res.send(json);
+      // const json = parser.toJSON(body);
+      res.send(body);
     }
   })
 })
