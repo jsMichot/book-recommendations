@@ -25,8 +25,8 @@ angular.module('app')
       "processData": false,
       "data": "{\n\t\"q\": \"romance\"\n}"
     }
-    $.ajax(settings).done(function (response) {
-      console.log(response);
+    $.ajax(settings).done(function (books) {
+      console.log(books);
       if (callback) {
         callback(books);
       }
