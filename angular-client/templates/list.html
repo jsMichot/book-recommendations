@@ -1,7 +1,7 @@
-<div>
-  <h4> Recommended Books </h4>
-  Search: <br>
-  <input ng-model="query" type="text" />
-  <submit>Submit</submit>
-  {{$ctrl.items}}
-</div>
+<ol>
+  <li ng-repeat="book in $ctrl.items">
+    <br>Title: {{book.title}}
+    <br>Author: {{book.author}}
+    <br>
+  </li>
+</ol>
