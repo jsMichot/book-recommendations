@@ -8,9 +8,7 @@ angular.module('app')
     itemsService.postQ(q, (books) => {
       app.items = books;
     })
-    app.component = ('app', {
-      templateUrl: 'templates/app.html'
-    });
+    app.component.templateUrl = 'templates/app.html';
   };
 })
 .component('app', {
