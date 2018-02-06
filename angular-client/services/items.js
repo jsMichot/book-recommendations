@@ -4,7 +4,7 @@ angular.module('app')
     $http.get('/books')
     .then(function(books) {
       if(callback) {
-        callback(books);
+        callback(books.data);
       }
     })
     .catch(function(err) {
