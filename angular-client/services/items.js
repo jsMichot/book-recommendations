@@ -15,7 +15,7 @@ angular.module('app')
     const settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://localhost:3000/books",
+      "url": "/books",
       "method": "POST",
       "headers": {
         "Content-Type": "application/json",
@@ -25,7 +25,6 @@ angular.module('app')
       "processData": false,
       "data": "{\n\t\"q\": \"romance\"\n}"
     }
-
     $.ajax(settings).done(function (response) {
       console.log(response);
     })
