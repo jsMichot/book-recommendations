@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const $http = require('http');
+const request = require('request');
 
 const items = require('../database-mongo');
 
