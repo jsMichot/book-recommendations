@@ -11,6 +11,7 @@ app.use(express.static(__dirname + '/../angular-client'));
 app.use(express.static(__dirname + '/../node_modules'));
 
 app.use(bodyParser.json());
+const jsonParser = bodyParser.json();
 
 app.get('/items', function (req, res) {
   items.selectAll(function(err, data) {
@@ -32,7 +33,7 @@ app.post('/books', (req, res) => {
   res.send('this feature is currently being created')
 })
 
-app.get('/books', (req, res) => {
+app.get('/books', jsonParser, (req, res) => {
   const options = {
     method: 'GET',
     url: 'https://www.goodreads.com/search/index.xml',
