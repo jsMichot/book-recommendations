@@ -35,7 +35,7 @@ app.get('/books', (req, res) => {
     method: 'GET',
     url: 'https://www.goodreads.com/search',
     params: {
-      key: window.GOODREADS_API_KEY,
+      key: process.env.key,
       q: options.query || 'history',
       part: 'best_book',
       maxResults: 5,
