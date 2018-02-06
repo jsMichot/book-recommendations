@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const parseString = require('xml2js').parseString
+const parseString = require('xml2json').parseString
 
 const items = require('../database-mongo');
 
@@ -43,7 +43,7 @@ app.get('/books', (req, res) => {
       parseString(body, function (err, result) {
         const books = Object.keys(result.GoodreadsResponse.Request);
         const books2 = Object.keys(result.GoodreadsResponse.search);
-        console.log('TITLE: ' + JSON.stringify(books) + 'AUTHOR: ' + JSON.stringify(books2));
+        console.log('TITLE: ' + books + 'AUTHOR: ' + books2);
         console.log(result);
       });
     }
