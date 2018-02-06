@@ -14,11 +14,7 @@ angular.module('app')
   this.getQ = (q, callback) => {
     $http({
       method: 'GET',
-      url: 'https://www.goodreads.com/search',
-      qs: {
-        q: q,
-        key: 'Ya50zfsGd2qjCZfprdN5BQ',
-      }
+      url: `https://www.goodreads.com/search/index.xml?key=Ya50zfsGd2qjCZfprdN5BQ&q=${q}`
     })
     .then(function (xml) {
       if (callback) {
