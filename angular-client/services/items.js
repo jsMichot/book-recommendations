@@ -15,7 +15,7 @@ angular.module('app')
     $http({
       method: 'GET',
       url: 'https://www.goodreads.com/search',
-      params: {
+      qs: {
         q: q,
         key: 'Ya50zfsGd2qjCZfprdN5BQ',
       }
