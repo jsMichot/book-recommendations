@@ -3,6 +3,7 @@ angular.module('app')
   const app = this;
   itemsService.getAll((books) => {
     app.items = books;
+    console.log('77777 ' + app.items);
   });
   app.postQ = q => {
     itemsService.postQ(q, (books) => {
