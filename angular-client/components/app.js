@@ -13,7 +13,9 @@ angular.module('app')
     })
   };
   app.getRan = () => {
+    console.log(1111)
     itemsService.getRan(books => {
+      console.log('final ' + books);
       app.items = itemsService.items;
     })
   }
