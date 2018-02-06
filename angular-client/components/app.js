@@ -9,7 +9,7 @@ angular.module('app')
     itemsService.postQ(q, (books) => {
       app.items = itemsService.items;
       console.log('!!!!!! ' + app.items);
-      $('.query').val('');
+      $('.query').val('find a good book');
     })
     app.input = '';
     // app.templateUrl = 'templates/app.html';
