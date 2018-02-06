@@ -34,7 +34,7 @@ app.get('/books', (req, res) => {
   const options = {
     method: 'GET',
     url: 'https://www.goodreads.com/search/index.xml',
-    qs: { key: Ya50zfsGd2qjCZfprdN5BQ, q: 'Ender%27s+Game' }
+    qs: { key: 'Ya50zfsGd2qjCZfprdN5BQ', q: 'Ender%27s+Game' }
   };
   request(options, function (error, response, body) {
     if (error) {
