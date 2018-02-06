@@ -36,7 +36,7 @@ app.get('/books', (req, res) => {
     url: 'https://www.goodreads.com/search',
     params: {
       key: process.env.key,
-      q: options.query || 'history',
+      q: 'history',
       part: 'best_book',
       maxResults: 5,
       type: 'Book'
