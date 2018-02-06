@@ -42,7 +42,7 @@ app.get('/books', (req, res) => {
     } else {
       parseString(body, function (err, result) {
         const books = result.GoodreadsResponse.search;
-        console.log(JSON.stringify(books));
+        console.log(JSON.stringify(books[0]));
         console.log(result);
       });
     }
