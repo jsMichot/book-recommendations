@@ -1,5 +1,4 @@
-angular.module('video-player')
-
+angular.module('book-recommendations')
   .component('app', {
     controller: goodreads => {
       const app = this;
