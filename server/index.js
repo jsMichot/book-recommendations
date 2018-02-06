@@ -41,7 +41,7 @@ app.get('/books', (req, res) => {
       console.log('SERVER error: ' + error);
     } else {
       parseString(body, function (err, result) {
-        const books = search.best_book;
+        const books = result.search.best_book;
         console.log(JSON.stringify(books));
         console.log(result);
       });
