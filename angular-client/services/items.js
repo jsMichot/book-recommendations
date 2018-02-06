@@ -39,7 +39,7 @@ angular.module('app')
   itemsService.getRan = (callback) => {
     $http.get('/items')
     .then(function (books) {
-      itemsService.items = books.data;
+      itemsService.items = books;
       if (callback) {
         callback(books.data);
       }
