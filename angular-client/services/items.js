@@ -40,9 +40,9 @@ angular.module('app')
     $http.get('/items')
     .then(function (books) {
       console.log('!!!!' + books);
-      itemsService.items = books;
+      itemsService.items = books.data;
       if (callback) {
-        callback(books);
+        callback(books.data);
       }
     })
     .catch(function (err) {
