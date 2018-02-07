@@ -3,7 +3,7 @@
   Get a recommendation: <br>
   (brought to you by goodreads)
   <br>Search:<br>
-  <input ng-value="query" type="text" class="query"/>
+  <input ng-model="query" type="text" class="query"/>
   <button ng-click="$ctrl.postQ(query)">Submit</button><br>
   <button ng-click="$ctrl.makeWiseSelections()">Suggest a Good Book for Me</button>
   <br>
