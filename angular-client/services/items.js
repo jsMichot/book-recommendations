@@ -1,17 +1,6 @@
 angular.module('app')
 .service('itemsService', function($http) {
   const itemsService = this;
-  itemsService.getAll = function(callback) {
-    $http.get('/items')
-    .then(function(books) {
-      if(callback) {
-        callback(books.data);
-      }
-    })
-    .catch(function(err) {
-      console.log(err);
-    });
-  };
   itemsService.postQ = (q, callback) => {
     const settings = {
       "async": true,
@@ -35,7 +24,6 @@ angular.module('app')
   itemsService.getRan = (callback) => {
     $http.get('/items')
     .then(function (books) {
-      console.log('from DB: ' + books.data);
       if (callback) {
         callback(books.data);
       }

@@ -1,12 +1,11 @@
 angular.module('app')
 .controller('AppCtrl', function(itemsService, $scope) {
   const app = this;
-  itemsService.getAll((books) => {
+  itemsService.getRan((books) => {
     app.items = books;
   });
   app.postQ = q => {
     itemsService.postQ(q, (books) => {
-      console.log('postQ' + JSON.stringify(books));
       $scope.$apply(() => {
         app.items = books;
         $('.query').val('');
@@ -15,7 +14,6 @@ angular.module('app')
   };
   app.makeWiseSelections = () => {
     itemsService.getRan(books => {
-      console.log('!!!' + books)
       app.items = books;
     })
   }
