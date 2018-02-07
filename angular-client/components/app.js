@@ -6,12 +6,9 @@ angular.module('app')
   });
   app.postQ = q => {
     itemsService.postQ(q, (books) => {
-      return new Promise((resolve, reject) => {
-        app.items = itemsService.items
-        $('.query').val('processing your request')
-        resolve()
-      })
-      .then(() => { $('.query').val(''); });
+      console.log('postQ' + books)
+      app.items = books;
+      $('.query').val('')
     })
   };
   app.makeWiseSelections = () => {
