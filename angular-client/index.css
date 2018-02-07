@@ -1,21 +1,13 @@
-#app {
+body {
   background-color: #fff; 
   background-image: 
   linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
   linear-gradient(#eee .1em, transparent .1em);
   background-size: 100% 1.2em;
-  margin-left: 5%;
   font-family: Courier;
   font-size: 2ex;
 }
 
-#left {
-  float: left;
-  margin-right: 95%;
-  background: 
-  linear-gradient(63deg, #999 23%, transparent 23%) 7px 0, 
-  linear-gradient(63deg, transparent 74%, #999 78%), 
-  linear-gradient(63deg, transparent 34%, #999 38%, #999 58%, transparent 62%), 
-  #444;
-  background-size: 16px 48px;
+#app {
+    margin-left: 5%;
 }
