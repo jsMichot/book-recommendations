@@ -21,7 +21,7 @@ app.get('/items', function (req, res) {
       const randomSelections = [];
       for (i = 0; i < 20; i++) {
         let ranNum = Math.floor(Math.random() * books.length);
-        for (let j = 0; j < 20; j++) {
+        for (let j = 0; j < books.length; j++) {
           if (j === ranNum) { randomSelections.push(books[j]); }
         }
       }
