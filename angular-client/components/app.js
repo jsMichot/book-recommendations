@@ -7,7 +7,7 @@ angular.module('app')
   app.postQ = q => {
     itemsService.postQ(q, (books) => {
       console.log('postQ' + books)
-      app.items = books;
+      app.items = books.data;
       $('.query').val('')
     })
   };
