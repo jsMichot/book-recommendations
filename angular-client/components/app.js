@@ -15,7 +15,7 @@ angular.module('app')
   app.makeWiseSelections = () => {
     console.log(1111)
     itemsService.getRan(books => {
-      console.log('final ' + books);
+      console.log('final ' + JSON.stringify(books));
       app.items = itemsService.items;
     })
   }
