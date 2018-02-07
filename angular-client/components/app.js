@@ -1,14 +1,16 @@
 angular.module('app')
-.controller('AppCtrl', function(itemsService) {
+.controller('AppCtrl', function(itemsService, $scope) {
   const app = this;
   itemsService.getAll((books) => {
-    app.items = itemsService.items;
+    app.items = books;
   });
   app.postQ = q => {
     itemsService.postQ(q, (books) => {
-      console.log('postQ' + books)
-      app.items = books.data;
-      $('.query').val('')
+      console.log('postQ' + JSON.stringify(books));
+      $scope.$apply(() => {
+        app.items = books;
+        $('.query').val('');
+      })
     })
   };
   app.makeWiseSelections = () => {

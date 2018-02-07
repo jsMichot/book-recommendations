@@ -1,11 +1,9 @@
 angular.module('app')
 .service('itemsService', function($http) {
   const itemsService = this;
-  itemsService.items = null;
   itemsService.getAll = function(callback) {
-    $http.get('/books')
+    $http.get('/items')
     .then(function(books) {
-      itemsService.items = books.data;
       if(callback) {
         callback(books.data);
       }
@@ -29,8 +27,6 @@ angular.module('app')
       "data": JSON.stringify({q: q})
     }
     $.ajax(settings).done(function (books) {
-      itemsService.items = books;
-      console.log(books);
       if (callback) {
         callback(books);
       }
@@ -40,7 +36,6 @@ angular.module('app')
     $http.get('/items')
     .then(function (books) {
       console.log('from DB: ' + books.data);
-      itemsService.items = books.data;
       if (callback) {
         callback(books.data);
       }
