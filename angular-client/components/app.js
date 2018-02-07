@@ -3,19 +3,15 @@ angular.module('app')
   const app = this;
   itemsService.getAll((books) => {
     app.items = itemsService.items;
-    console.log('77777 ' + app.items);
   });
   app.postQ = q => {
     itemsService.postQ(q, (books) => {
       app.items = itemsService.items;
-      console.log('!!!!!! ' + app.items);
       $('.query').val('');
     })
   };
   app.makeWiseSelections = () => {
-    console.log(1111)
     itemsService.getRan(books => {
-      console.log('final ' + JSON.stringify(books));
       app.items = itemsService.items;
     })
   }

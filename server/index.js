@@ -56,11 +56,6 @@ app.post('/books', (req, res) => {
           .save();
         });
         res.send(results);
-        /*
-        Results Array: GoodreadsResponse.search[0].results[0].work
-        Title: Results[i].best_book[0].title[0]
-        Author: Results[i].best_book[0].author[0].name[0]
-        */
       });
     }
   })
