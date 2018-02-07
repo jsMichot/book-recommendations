@@ -7,8 +7,9 @@ angular.module('app')
   app.postQ = q => {
     itemsService.postQ(q, (books) => {
       app.items = itemsService.items;
-      $('.query').val('');
+      $('.query').val('processing your request');
     })
+      .then(() => { $('.query').val(''); });
   };
   app.makeWiseSelections = () => {
     itemsService.getRan(books => {
