@@ -52,7 +52,8 @@ app.post('/books', (req, res) => {
           return books;
         }, [])
         results.forEach(book => {
-          new items.Item({title: book.title, author: book.author});
+          new items.Item({title: book.title, author: book.author})
+          .save();
         });
         res.send(results);
         /*
